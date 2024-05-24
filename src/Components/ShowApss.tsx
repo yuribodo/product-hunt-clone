@@ -2,7 +2,7 @@ import image from '../../assets/Captura de tela 2024-05-24 174604.png'
 
 const ShowApss = () => {
   return (
-    <div className="flex flex-col justify-center items-center mt-10">
+    <div className="flex flex-col items-start p-10 mt-5">
         <h1 className=" text-xl font-bold">O Próximo Grande App </h1>
         
             <div className="flex  ml-3 mt-6 items-start p-6">
