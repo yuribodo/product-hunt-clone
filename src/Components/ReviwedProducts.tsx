@@ -1,7 +1,9 @@
 
 const ReviwedProducts = () => {
   return (
-    <div>ReviwedProducts</div>
+    <div>
+        wasd
+    </div>
   )
 }
 

@@ -15,9 +15,9 @@ function App() {
         <div>
           <TrendingTopics/>
         </div>
-        <div>
-          <ReviwedProducts/>
+        <div className='flex'>
           <ShowApss/>
+          <ReviwedProducts/>
         </div>
       </div>
     </>
