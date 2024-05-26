@@ -1,21 +1,34 @@
+import { useState } from 'react';
 import Navbar from './Components/Navbar';
 import ReviwedProducts from './Components/ReviwedProducts';
 import ShowApss from './Components/ShowApss';
 import TrendingTopics from './Components/TrendingTopics';
+import projects from '../projects.json'
 
 function App() {
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const filteredProjects = projects.filter(project =>
+    project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    project.description.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <>
       <div>
         <div>
-          <Navbar />
+          <Navbar onSearchChange={handleSearchChange}/>
         </div>
         <div>
           <TrendingTopics />
         </div>
         <div className='flex'>
           <div className='w-[70%]'>
-            <ShowApss />
+            <ShowApss projectsdata={filteredProjects}/>
           </div>
           <div className='border-r border-gray-400'></div>
           <div className='w-[30%]'>

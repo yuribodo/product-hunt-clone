@@ -1,9 +1,21 @@
+import React from 'react';
 import image from '../../assets/Captura de tela 2024-05-24 174604.png';
-import projects from '../../projects.json';
 
-const ShowApss = () => {
-  const projectsdata = projects;
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  url: string;
+  upvotes: number;
+  createdAt: string;
+  updatedAt: string;
+}
 
+interface ShowApssProps {
+  projectsdata: Project[];
+}
+
+const ShowApss: React.FC<ShowApssProps> = ({ projectsdata }) => {
   return (
     <div className="flex flex-col items-start p-10 mt-5">
       <h1 className="text-xl font-bold">O Próximo Grande App</h1>
@@ -21,8 +33,8 @@ const ShowApss = () => {
               <p>API</p>
             </div>
           </div>
-          <div className="flex items-center border w-[40px] justify-center rounded border-black">
-            <p>{project.upvotes}</p>
+          <div className="flex items-center border p-2 rounded bg-slate-400">
+            <p>{project.upvotes} votes</p>
           </div>
         </div>
       ))}
