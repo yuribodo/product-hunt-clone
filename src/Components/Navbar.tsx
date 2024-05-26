@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { SignedOut, SignInButton, SignUpButton } from "@clerk/clerk-react";
 
 interface NavbarProps {
   onSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -20,9 +21,11 @@ const Navbar: React.FC<NavbarProps> = ({ onSearchChange }) => {
           <Link to="/"><button type="button">Categorias</button></Link>
           <Link to="/"><button type="button">Sobre</button></Link>         
         </div>
-        <div className='flex space-x-2'>
-          <button type="button">Login</button>
-          <button type="button">Registro</button>
+        <div className='flex space-x-2 p-8'>
+          <SignedOut>
+            <SignInButton />
+            <SignUpButton />
+          </SignedOut>
         </div>
       </div>
     </div>
