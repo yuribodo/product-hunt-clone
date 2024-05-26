@@ -2,6 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './Components/Home';
 import { ClerkProvider } from '@clerk/clerk-react'
+import NotFound from './Components/NotFound';
+
 
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
@@ -17,6 +19,7 @@ const App: React.FC = () => {
       <div className="container mx-auto p-4">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
       </ClerkProvider>
