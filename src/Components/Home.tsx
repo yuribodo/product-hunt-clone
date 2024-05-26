@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import Navbar from './Navbar';
 import ReviwedProducts from './ReviwedProducts';
 import ShowApss from './ShowApss';
@@ -26,14 +27,29 @@ function Home() {
       <div className="py-8">
         <TrendingTopics />
       </div>
-      <div className="flex px-8">
-        <div className="w-full md:w-2/3 pr-4">
+      <div className="flex flex-col md:flex-row px-8">
+        <motion.div 
+          className="w-full md:w-2/3 pr-4"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
           <ShowApss projectsdata={filteredProjects} />
-        </div>
-        <div className="border-l border-gray-700 h-auto mx-4"></div>
-        <div className="w-full md:w-1/3 pl-4">
+        </motion.div>
+        <motion.div 
+          className="border-l border-gray-700 h-auto mx-4 hidden md:block"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
+        />
+        <motion.div 
+          className="w-full md:w-1/3 pl-4"
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
           <ReviwedProducts />
-        </div>
+        </motion.div>
       </div>
     </div>
   );

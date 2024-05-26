@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import image from '../../assets/Captura de tela 2024-05-24 174604.png';
+import { motion } from 'framer-motion';
 
 interface Project {
   id: number;
@@ -31,7 +32,12 @@ const ShowApss: React.FC<ShowApssProps> = ({ projectsdata }) => {
       <h1 className="text-xl font-bold">O Próximo Grande App</h1>
 
       {projects.map((project) => (
-        <div key={project.id} className="flex w-full ml-3 mt-6 items-start p-6 border rounded-lg shadow-md">
+        <motion.div 
+          key={project.id} 
+          className="flex w-full ml-3 mt-6 items-start p-6 border rounded-lg shadow-md cursor-pointer"
+          whileHover={{ scale: 1.05, boxShadow: '0px 0px 15px rgba(0, 255, 255, 0.8)' }}
+          transition={{ type: 'spring', stiffness: 300 }}
+        >
           <div>
             <img src={image} alt="logo" className="w-16 h-16 object-cover" />
           </div>
@@ -49,7 +55,7 @@ const ShowApss: React.FC<ShowApssProps> = ({ projectsdata }) => {
               <p  onClick={() => addVote(project.id)}>{project.upvotes}</p>
             </div>
           </div>
-        </div>
+        </motion.div>
       ))}
     </div>
   );
