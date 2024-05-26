@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 interface NavbarProps {
   onSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -15,9 +16,9 @@ const Navbar: React.FC<NavbarProps> = ({ onSearchChange }) => {
             placeholder="Buscar..." 
             onChange={onSearchChange}
           />
-          <button type="button">Produtos</button>
-          <button type="button">Categorias</button>
-          <button type="button">Sobre</button>
+          <Link to="/"><button type="button">Produtos</button></Link>
+          <Link to="/"><button type="button">Categorias</button></Link>
+          <Link to="/"><button type="button">Sobre</button></Link>         
         </div>
         <div className='flex space-x-2'>
           <button type="button">Login</button>
