@@ -1,0 +1,92 @@
+[
+    {
+        "id": 1,
+        "title": "OpenAI GPT Chatbot",
+        "description": "A chatbot powered by OpenAI's GPT-4 model to assist with a variety of tasks.",
+        "url": "https://github.com/user/openai-gpt-chatbot",
+        "upvotes": 150,
+        "createdAt": "2023-01-15",
+        "updatedAt": "2024-03-20"
+    },
+    {
+        "id": 2,
+        "title": "IoT Home Automation System",
+        "description": "A project to control home appliances remotely using IoT devices.",
+        "url": "https://github.com/user/iot-home-automation",
+        "upvotes": 85,
+        "createdAt": "2022-09-10",
+        "updatedAt": "2024-04-05"
+    },
+    {
+        "id": 3,
+        "title": "AI-Powered Image Recognition",
+        "description": "A deep learning project to recognize and categorize images with high accuracy.",
+        "url": "https://github.com/user/ai-image-recognition",
+        "upvotes": 120,
+        "createdAt": "2022-11-22",
+        "updatedAt": "2024-01-18"
+    },
+    {
+        "id": 4,
+        "title": "Blockchain Voting System",
+        "description": "A secure and transparent voting system built on blockchain technology.",
+        "url": "https://github.com/user/blockchain-voting",
+        "upvotes": 95,
+        "createdAt": "2023-02-05",
+        "updatedAt": "2024-02-28"
+    },
+    {
+        "id": 5,
+        "title": "AR Shopping Experience",
+        "description": "An augmented reality application to enhance online shopping experiences.",
+        "url": "https://github.com/user/ar-shopping",
+        "upvotes": 110,
+        "createdAt": "2023-06-18",
+        "updatedAt": "2024-03-15"
+    },
+    {
+        "id": 6,
+        "title": "Smart Healthcare System",
+        "description": "An integrated system for monitoring and managing healthcare using smart devices.",
+        "url": "https://github.com/user/smart-healthcare",
+        "upvotes": 130,
+        "createdAt": "2023-03-12",
+        "updatedAt": "2024-04-10"
+    },
+    {
+        "id": 7,
+        "title": "Cybersecurity Threat Detection",
+        "description": "A machine learning-based system to detect and respond to cybersecurity threats.",
+        "url": "https://github.com/user/cybersecurity-detection",
+        "upvotes": 140,
+        "createdAt": "2023-05-01",
+        "updatedAt": "2024-01-30"
+    },
+    {
+        "id": 8,
+        "title": "Virtual Reality Training Simulator",
+        "description": "A VR simulator for training purposes in various industries.",
+        "url": "https://github.com/user/vr-training-simulator",
+        "upvotes": 100,
+        "createdAt": "2022-08-24",
+        "updatedAt": "2024-03-07"
+    },
+    {
+        "id": 9,
+        "title": "Natural Language Processing Toolkit",
+        "description": "A comprehensive toolkit for natural language processing tasks.",
+        "url": "https://github.com/user/nlp-toolkit",
+        "upvotes": 125,
+        "createdAt": "2023-07-15",
+        "updatedAt": "2024-02-25"
+    },
+    {
+        "id": 10,
+        "title": "Self-Driving Car Software",
+        "description": "Software to enable autonomous driving capabilities in cars.",
+        "url": "https://github.com/user/self-driving-car",
+        "upvotes": 160,
+        "createdAt": "2022-12-05",
+        "updatedAt": "2024-03-12"
+    }
+]
