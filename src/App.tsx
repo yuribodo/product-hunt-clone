@@ -1,11 +1,13 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes  } from 'react-router-dom';
 import Home from './Components/Home';
 import { ClerkProvider } from '@clerk/clerk-react'
 import NotFound from './Components/NotFound';
 import Categorias from './Pages/Categorias';
 import Produtos from './Pages/Produtos';
 import Sobre from './Pages/Sobre';
+import ProjectDetails from './Pages/ProjectDetails';
+
 
 
 
@@ -19,17 +21,18 @@ if (!PUBLISHABLE_KEY) {
 const App: React.FC = () => {
   return (
     <Router>
-      <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
-      <div className="container mx-auto ">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="*" element={<NotFound />} />
-          <Route path='/produtos' element={<Produtos/>}/>
-          <Route path='/categorias' element={<Categorias/>}/>
-          <Route path='/sobre' element={<Sobre/>}/>
-        </Routes>
-      </div>
-      </ClerkProvider>
+        <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
+        <div className="container mx-auto ">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="*" element={<NotFound />} />
+            <Route path='/produtos' element={<Produtos/>}/>
+            <Route path='/categorias' element={<Categorias/>}/>
+            <Route path='/sobre' element={<Sobre/>}/>
+            <Route path="/project/:id" element={<ProjectDetails/>} />
+          </Routes>
+        </div>
+        </ClerkProvider>
     </Router>
   );
 };
