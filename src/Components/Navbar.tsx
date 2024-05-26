@@ -13,7 +13,7 @@ const Navbar: React.FC<NavbarProps> = ({ onSearchChange }) => {
         <div className='flex space-x-4 text-white'>
           <input 
             type="text" 
-            className='p-1 rounded-lg' 
+            className='p-1 rounded-lg text-black' 
             placeholder="Buscar..." 
             onChange={onSearchChange}
           />

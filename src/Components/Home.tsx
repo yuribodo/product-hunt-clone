@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 import ReviwedProducts from './ReviwedProducts';
 import ShowApss from './ShowApss';
 import TrendingTopics from './TrendingTopics';
-import projects from '../../projects.json'
+import projects from '../../projects.json';
 
 function Home() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -18,25 +18,21 @@ function Home() {
   );
 
   return (
-    <>
-      <div>
-        <div>
-          <Navbar onSearchChange={handleSearchChange}/>
+    <div className="bg-gray-900 text-white min-h-screen">
+      <Navbar onSearchChange={handleSearchChange} />
+      <div className="py-8">
+        <TrendingTopics />
+      </div>
+      <div className="flex px-8">
+        <div className="w-full md:w-2/3 pr-4">
+          <ShowApss projectsdata={filteredProjects} />
         </div>
-        <div>
-          <TrendingTopics />
-        </div>
-        <div className='flex'>
-          <div className='w-[70%]'>
-            <ShowApss projectsdata={filteredProjects}/>
-          </div>
-          <div className='border-r border-gray-400'></div>
-          <div className='w-[30%]'>
-            <ReviwedProducts />
-          </div>
+        <div className="border-l border-gray-700 h-auto mx-4"></div>
+        <div className="w-full md:w-1/3 pl-4">
+          <ReviwedProducts />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
