@@ -3,6 +3,10 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './Components/Home';
 import { ClerkProvider } from '@clerk/clerk-react'
 import NotFound from './Components/NotFound';
+import Categorias from './Pages/Categorias';
+import Produtos from './Pages/Produtos';
+import Sobre from './Pages/Sobre';
+
 
 
 
@@ -20,6 +24,9 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="*" element={<NotFound />} />
+          <Route path='/produtos' element={<Produtos/>}/>
+          <Route path='/sobre' element={<Categorias/>}/>
+          <Route path='/categorias' element={<Sobre/>}/>
         </Routes>
       </div>
       </ClerkProvider>

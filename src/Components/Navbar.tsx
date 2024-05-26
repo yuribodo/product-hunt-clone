@@ -17,9 +17,9 @@ const Navbar: React.FC<NavbarProps> = ({ onSearchChange }) => {
             placeholder="Buscar..." 
             onChange={onSearchChange}
           />
-          <Link to="/"><button type="button">Produtos</button></Link>
-          <Link to="/"><button type="button">Categorias</button></Link>
-          <Link to="/"><button type="button">Sobre</button></Link>         
+          <Link to="/produtos"><button type="button">Produtos</button></Link>
+          <Link to="/categorias"><button type="button">Categorias</button></Link>
+          <Link to="/sobre"><button type="button">Sobre</button></Link>         
         </div>
         <div className='flex space-x-2 p-8'>
           <SignedOut>
