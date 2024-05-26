@@ -9,6 +9,7 @@ function Home() {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    console.log("Search term:", event.target.value); // Adicionado para depuração
     setSearchTerm(event.target.value);
   };
 
@@ -16,6 +17,8 @@ function Home() {
     project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
     project.description.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  console.log("Filtered projects:", filteredProjects); // Adicionado para depuração
 
   return (
     <div className="bg-gray-900 text-white min-h-screen">

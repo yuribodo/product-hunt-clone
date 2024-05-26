@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { SignedOut, SignInButton, SignUpButton } from "@clerk/clerk-react";
 
 interface NavbarProps {
-  onSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onSearchChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const Navbar: React.FC<NavbarProps> = ({ onSearchChange }) => {
