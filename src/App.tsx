@@ -20,13 +20,13 @@ const App: React.FC = () => {
   return (
     <Router>
       <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
-      <div className="container mx-auto p-4">
+      <div className="container mx-auto ">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="*" element={<NotFound />} />
           <Route path='/produtos' element={<Produtos/>}/>
-          <Route path='/sobre' element={<Categorias/>}/>
-          <Route path='/categorias' element={<Sobre/>}/>
+          <Route path='/categorias' element={<Categorias/>}/>
+          <Route path='/sobre' element={<Sobre/>}/>
         </Routes>
       </div>
       </ClerkProvider>

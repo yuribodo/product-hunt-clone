@@ -10,18 +10,18 @@ const Navbar: React.FC<NavbarProps> = ({ onSearchChange }) => {
   return (
     <div className='h-[10vh] bg-gray-600'>
       <div className='flex justify-between items-center h-full px-4'>
-        <div className='flex space-x-4'>
+        <div className='flex space-x-4 text-white'>
           <input 
             type="text" 
             className='p-1 rounded-lg' 
             placeholder="Buscar..." 
             onChange={onSearchChange}
           />
-          <Link to="/produtos"><button type="button">Produtos</button></Link>
+          <Link to="/"><button type="button">Produtos</button></Link>
           <Link to="/categorias"><button type="button">Categorias</button></Link>
           <Link to="/sobre"><button type="button">Sobre</button></Link>         
         </div>
-        <div className='flex space-x-2 p-8'>
+        <div className='flex space-x-2 p-8 text-white'>
           <SignedOut>
             <SignInButton />
             <SignUpButton />
