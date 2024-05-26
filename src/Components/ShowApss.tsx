@@ -2,16 +2,8 @@ import React, { useEffect, useState } from 'react';
 import image from '../../assets/Captura de tela 2024-05-24 174604.png';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { Project } from '../types';
 
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  url: string;
-  upvotes: number;
-  createdAt: string;
-  updatedAt: string;
-}
 
 interface ShowApssProps {
   projectsdata: Project[];

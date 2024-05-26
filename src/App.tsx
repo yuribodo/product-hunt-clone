@@ -7,12 +7,9 @@ import Categorias from './Pages/Categorias';
 import Produtos from './Pages/Produtos';
 import Sobre from './Pages/Sobre';
 import ProjectDetails from './Pages/ProjectDetails';
+import projects from '../projects.json'; // Importe sua lista de projetos
 
-
-
-
-
-const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
+const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
 if (!PUBLISHABLE_KEY) {
   throw new Error("Missing Publishable Key")
@@ -29,7 +26,7 @@ const App: React.FC = () => {
             <Route path='/produtos' element={<Produtos/>}/>
             <Route path='/categorias' element={<Categorias/>}/>
             <Route path='/sobre' element={<Sobre/>}/>
-            <Route path="/project/:id" element={<ProjectDetails/>} />
+            <Route path="/project/:id" element={<ProjectDetails projects={projects} />} />
           </Routes>
         </div>
         </ClerkProvider>
