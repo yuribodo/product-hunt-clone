@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import image from '../../assets/Captura de tela 2024-05-24 174604.png';
 
 interface Project {
@@ -16,11 +16,21 @@ interface ShowApssProps {
 }
 
 const ShowApss: React.FC<ShowApssProps> = ({ projectsdata }) => {
+  // Initialize the state with the upvotes from the projectsdata
+  const [projects, setProjects] = useState(projectsdata);
+
+  // Function to handle upvoting
+  const addVote = (id: number) => {
+    setProjects(projects.map(project =>
+      project.id === id ? { ...project, upvotes: project.upvotes + 1 } : project
+    ));
+  };
+
   return (
     <div className="flex flex-col items-start p-10 mt-5">
       <h1 className="text-xl font-bold">O Próximo Grande App</h1>
 
-      {projectsdata.map((project) => (
+      {projects.map((project) => (
         <div key={project.id} className="flex w-full ml-3 mt-6 items-start p-6 border rounded-lg shadow-md">
           <div>
             <img src={image} alt="logo" className="w-16 h-16 object-cover" />
@@ -33,8 +43,11 @@ const ShowApss: React.FC<ShowApssProps> = ({ projectsdata }) => {
               <p>API</p>
             </div>
           </div>
-          <div className="flex items-center border p-2 rounded bg-slate-400">
-            <p>{project.upvotes} votes</p>
+          <div>
+            <p>Votos</p>
+            <div className="flex items-center border justify-center w-[40px] rounded border-black cursor-pointer">
+              <p  onClick={() => addVote(project.id)}>{project.upvotes}</p>
+            </div>
           </div>
         </div>
       ))}
