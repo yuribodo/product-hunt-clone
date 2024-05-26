@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Navbar from './Navbar';
 import ReviwedProducts from './ReviwedProducts';
@@ -8,16 +8,20 @@ import projects from '../../projects.json';
 
 function Home() {
   const [searchTerm, setSearchTerm] = useState('');
+  const [filteredProjects, setFilteredProjects] = useState(projects);
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     console.log("Search term:", event.target.value); // Adicionado para depuração
     setSearchTerm(event.target.value);
   };
 
-  const filteredProjects = projects.filter(project =>
-    project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    project.description.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  useEffect(() => {
+    const filtered = projects.filter(project =>
+      project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      project.description.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredProjects(filtered);
+  }, [searchTerm]);
 
   console.log("Filtered projects:", filteredProjects); // Adicionado para depuração
 

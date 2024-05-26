@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import image from '../../assets/Captura de tela 2024-05-24 174604.png';
 import { motion } from 'framer-motion';
 
@@ -26,6 +26,10 @@ const ShowApss: React.FC<ShowApssProps> = ({ projectsdata }) => {
       project.id === id ? { ...project, upvotes: project.upvotes + 1 } : project
     ));
   };
+
+  useEffect(() => {
+    setProjects(projectsdata);
+  }, [projectsdata]);
 
   return (
     <div className="flex flex-col items-start p-10 mt-5">
