@@ -1,4 +1,3 @@
-import React from 'react';
 import image from '../../assets/Captura de tela 2024-05-24 174604.png';
 import projects from '../../projects.json';
 
