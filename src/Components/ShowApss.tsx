@@ -56,7 +56,7 @@ const ShowApss: React.FC<ShowApssProps> = ({ projectsdata }) => {
             </Link>
             <div>
               <p>Votos</p>
-              <div className="flex items-center border justify-center w-[40px] rounded border-white cursor-pointer">
+              <div className="flex items-center border justify-center w-[40px] rounded border-white cursor-pointer hover:w-[50px]">
                 <p  onClick={(e) => addVote(project.id, e)}>{project.upvotes}</p>
               </div>
             </div>
