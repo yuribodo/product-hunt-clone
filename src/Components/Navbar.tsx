@@ -12,7 +12,7 @@ const Navbar: React.FC<NavbarProps> = ({ onSearchChange }) => {
 
   return (
     <motion.div 
-      className='w-full h-[10vh] bg-gray-800 shadow-lg absolute top-0 left-0'
+      className='h-[10vh] w-full bg-gray-800 shadow-lg fixed top-0 left-0 z-50'
       initial={{ y: -50, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -70,11 +70,11 @@ const Navbar: React.FC<NavbarProps> = ({ onSearchChange }) => {
           <div className='md:hidden flex items-center'>
             <button onClick={() => setMenuOpen(!menuOpen)}>
               {menuOpen ? (
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="h-6 w-6">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               ) : (
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="h-6 w-6">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
               )}
@@ -84,7 +84,7 @@ const Navbar: React.FC<NavbarProps> = ({ onSearchChange }) => {
       </div>
       {menuOpen && (
         <motion.div 
-          className='md:hidden bg-gray-800 text-white absolute w-full top-[10vh] left-0'
+          className='md:hidden bg-gray-800 text-white w-full absolute top-[10vh] left-0 z-40'
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
