@@ -37,13 +37,13 @@ const Navbar: React.FC<NavbarProps> = ({ onSearchChange }) => {
               Produtos
             </motion.button>
           </Link>
-          <Link to="/categorias" className='hover:text-blue-500 transition-colors'>
+          <Link to="/createproject" className='hover:text-blue-500 transition-colors'>
             <motion.button 
               type="button"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
-              Categorias
+              Mostrar project
             </motion.button>
           </Link>
           <Link to="/sobre" className='hover:text-blue-500 transition-colors'>
