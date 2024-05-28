@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from "../Components/Navbar";
 import { motion } from 'framer-motion';
 import { useParams } from 'react-router-dom';
-import { Project } from '../types';
+import { Project } from '../types/types';
 
 interface ProjectDetailsProps {
   projects: Project[]; // Assume que a lista de projetos é passada como uma propriedade
