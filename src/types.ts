@@ -6,4 +6,5 @@ export interface Project {
     upvotes: number;
     createdAt: string;
     updatedAt: string;
+    hashtag: string;
   }

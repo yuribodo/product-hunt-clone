@@ -6,7 +6,8 @@
         "url": "https://github.com/user/openai-gpt-chatbot",
         "upvotes": 150,
         "createdAt": "2023-01-15",
-        "updatedAt": "2024-03-20"
+        "updatedAt": "2024-03-20",
+        "hashtag": "AI" 
     },
     {
         "id": 2,
@@ -15,7 +16,8 @@
         "url": "https://github.com/user/iot-home-automation",
         "upvotes": 85,
         "createdAt": "2022-09-10",
-        "updatedAt": "2024-04-05"
+        "updatedAt": "2024-04-05",
+        "hashtag": "IoT"
     },
     {
         "id": 3,
@@ -24,7 +26,8 @@
         "url": "https://github.com/user/ai-image-recognition",
         "upvotes": 120,
         "createdAt": "2022-11-22",
-        "updatedAt": "2024-01-18"
+        "updatedAt": "2024-01-18",
+        "hashtag": "AI"
     },
     {
         "id": 4,
@@ -33,7 +36,8 @@
         "url": "https://github.com/user/blockchain-voting",
         "upvotes": 95,
         "createdAt": "2023-02-05",
-        "updatedAt": "2024-02-28"
+        "updatedAt": "2024-02-28",
+        "hashtag": "Blockchain"
     },
     {
         "id": 5,
@@ -42,7 +46,8 @@
         "url": "https://github.com/user/ar-shopping",
         "upvotes": 110,
         "createdAt": "2023-06-18",
-        "updatedAt": "2024-03-15"
+        "updatedAt": "2024-03-15",
+        "hashtag": "AR"
     },
     {
         "id": 6,
@@ -51,7 +56,8 @@
         "url": "https://github.com/user/smart-healthcare",
         "upvotes": 130,
         "createdAt": "2023-03-12",
-        "updatedAt": "2024-04-10"
+        "updatedAt": "2024-04-10",
+        "hashtag": "Healthcare"
     },
     {
         "id": 7,
@@ -60,7 +66,8 @@
         "url": "https://github.com/user/cybersecurity-detection",
         "upvotes": 140,
         "createdAt": "2023-05-01",
-        "updatedAt": "2024-01-30"
+        "updatedAt": "2024-01-30",
+        "hashtag": "Cybersecurity"
     },
     {
         "id": 8,
@@ -69,7 +76,8 @@
         "url": "https://github.com/user/vr-training-simulator",
         "upvotes": 100,
         "createdAt": "2022-08-24",
-        "updatedAt": "2024-03-07"
+        "updatedAt": "2024-03-07",
+        "hashtag": "VR"
     },
     {
         "id": 9,
@@ -78,7 +86,8 @@
         "url": "https://github.com/user/nlp-toolkit",
         "upvotes": 125,
         "createdAt": "2023-07-15",
-        "updatedAt": "2024-02-25"
+        "updatedAt": "2024-02-25",
+        "hashtag": "NLP"
     },
     {
         "id": 10,
@@ -87,6 +96,7 @@
         "url": "https://github.com/user/self-driving-car",
         "upvotes": 160,
         "createdAt": "2022-12-05",
-        "updatedAt": "2024-03-12"
+        "updatedAt": "2024-03-12",
+        "hashtag": "AutonomousVehicles"
     }
 ]
