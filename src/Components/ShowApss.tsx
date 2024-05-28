@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import image from '../../assets/Captura de tela 2024-05-24 174604.png';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { FaProjectDiagram } from 'react-icons/fa'; // Import the icon
 import { Project } from '../types/types';
 
 interface ShowApssProps {
@@ -24,31 +24,31 @@ const ShowApss: React.FC<ShowApssProps> = ({ projectsdata }) => {
 
   return (
     <div className="flex flex-col items-start p-4 mt-5 w-full">
-      <h1 className="text-xl font-bold">O Próximo Grande App</h1>
+      <h1 className="text-2xl font-bold mb-4">O Próximo Grande App</h1>
 
       {projects.map((project) => (
         <motion.div 
           key={project.id}
-          className="flex flex-col sm:flex-row w-full mt-6 items-start p-4 sm:p-6 border rounded-lg shadow-md cursor-pointer"
-          whileHover={{ scale: 1.05, boxShadow: '0px 0px 15px rgba(0, 255, 255, 0.8)' }}
+          className="flex flex-col sm:flex-row w-full mt-6 items-center sm:items-start p-4 sm:p-6 border rounded-lg shadow-md cursor-pointer bg-gray-800 hover:bg-gray-700 transition duration-300"
+          whileHover={{ scale: 1.05 }}
           transition={{ type: 'spring', stiffness: 300 }}
         >
-          <div className="flex-shrink-0">
-            <img src={image} alt="logo" className="w-16 h-16 object-cover" />
+          <div className="flex-shrink-0 text-blue-500 text-4xl">
+            <FaProjectDiagram />
           </div>
-          <Link to={`/project/${project.id}`} className="flex flex-1 flex-col sm:flex-row sm:items-center ml-4 w-full">
+          <Link to={`/project/${project.id}`} className="flex flex-1 flex-col sm:flex-row sm:items-center ml-4 w-full text-white">
             <div className="flex-1">
               <h1 className="text-lg font-semibold">{project.title}</h1>
-              <p>{project.description}</p>
-              <div className="flex space-x-2">
-                <p className="cursor-pointer text-blue-500 hover:underline">#{project.hashtag}</p>
+              <p className="text-gray-300">{project.description}</p>
+              <div className="flex space-x-2 mt-2">
+                <p className="cursor-pointer text-blue-400 hover:underline">#{project.hashtag}</p>
               </div>
             </div>
           </Link>
-          <div className="flex items-center justify-center mt-4 sm:mt-0">
+          <div className="flex items-center justify-center ml-auto mt-4 sm:mt-0 sm:ml-4">
             <div className="flex flex-col items-center">
-              <p>Votos</p>
-              <div className="flex items-center border justify-center w-[40px] rounded border-white cursor-pointer hover:w-[50px]">
+              <p className="text-gray-300">Votos</p>
+              <div className="flex items-center border justify-center w-[40px] h-[40px] rounded-full border-white cursor-pointer hover:w-[50px] hover:h-[50px] transition-all duration-300 bg-blue-500 text-white">
                 <p onClick={(e) => addVote(project.id, e)}>{project.upvotes}</p>
               </div>
             </div>

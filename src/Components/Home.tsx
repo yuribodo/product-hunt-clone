@@ -10,6 +10,7 @@ function Home() {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredProjects, setFilteredProjects] = useState(projects);
   const [selectedHashtag, setSelectedHashtag] = useState<string | null>(null);
+  const [activeSection, setActiveSection] = useState<'products' | 'apps'>('apps');
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
@@ -41,28 +42,34 @@ function Home() {
         />
       </div>
       <div className="flex flex-col md:flex-row px-4">
-        <motion.div 
-          className="w-full md:w-2/3 pr-0 md:pr-4"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <ShowApss projectsdata={filteredProjects} />
-        </motion.div>
+        <div className="w-full md:w-2/3 pr-0 md:pr-4 mb-8 md:mb-0">
+          <div className="flex justify-center mb-4">
+            <button
+                className={`px-4 py-2 border-b-2 ${activeSection === 'apps' ? 'border-blue-500' : 'border-transparent'} focus:outline-none`}
+                onClick={() => setActiveSection('apps')}
+            >
+                Aplicações em Destaque
+            </button>
+            <button
+              className={`mr-4 px-4 py-2 border-b-2 ${activeSection === 'products' ? 'border-blue-500' : 'border-transparent'} focus:outline-none`}
+              onClick={() => setActiveSection('products')}
+            >
+              Produtos Revisados
+            </button>
+            
+          </div>
+          {activeSection === 'products' && <ReviwedProducts />}
+          {activeSection === 'apps' && <ShowApss projectsdata={filteredProjects} />}
+        </div>
         <motion.div 
           className="border-l border-gray-700 h-auto mx-0 md:mx-4 hidden md:block"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
         />
-        <motion.div 
-          className="w-full md:w-1/3 pl-0 md:pl-4"
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
+        <div className="w-full md:w-1/3 pl-0 md:pl-4">
           <ReviwedProducts />
-        </motion.div>
+        </div>
       </div>
     </div>
   );
