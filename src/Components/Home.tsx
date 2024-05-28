@@ -43,12 +43,12 @@ function Home() {
       </div>
       <div className="flex flex-col md:flex-row px-4">
         <div className="w-full md:w-2/3 pr-0 md:pr-4 mb-8 md:mb-0">
-          <div className="flex justify-center mb-4">
+          <div className="flex justify-center mb-4 md:hidden"> {/* Hidden on md and above */}
             <button
-                className={`px-4 py-2 border-b-2 ${activeSection === 'apps' ? 'border-blue-500' : 'border-transparent'} focus:outline-none`}
-                onClick={() => setActiveSection('apps')}
+              className={`px-4 py-2 border-b-2 ${activeSection === 'apps' ? 'border-blue-500' : 'border-transparent'} focus:outline-none`}
+              onClick={() => setActiveSection('apps')}
             >
-                Aplicações em Destaque
+              Aplicações em Destaque
             </button>
             <button
               className={`mr-4 px-4 py-2 border-b-2 ${activeSection === 'products' ? 'border-blue-500' : 'border-transparent'} focus:outline-none`}
@@ -56,10 +56,16 @@ function Home() {
             >
               Produtos Revisados
             </button>
-            
           </div>
-          {activeSection === 'products' && <ReviwedProducts />}
-          {activeSection === 'apps' && <ShowApss projectsdata={filteredProjects} />}
+          {/* Show sections based on the selected button, only for mobile view */}
+          <div className="md:hidden"> {/* Hidden on md and above */}
+            {activeSection === 'products' && <ReviwedProducts />}
+            {activeSection === 'apps' && <ShowApss projectsdata={filteredProjects} />}
+          </div>
+          {/* Always show ShowApss for md and above */}
+          <div className="hidden md:block">
+            <ShowApss projectsdata={filteredProjects} />
+          </div>
         </div>
         <motion.div 
           className="border-l border-gray-700 h-auto mx-0 md:mx-4 hidden md:block"
@@ -67,7 +73,7 @@ function Home() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
         />
-        <div className="w-full md:w-1/3 pl-0 md:pl-4">
+        <div className="w-full md:w-1/3 pl-0 md:pl-4 hidden md:block">
           <ReviwedProducts />
         </div>
       </div>

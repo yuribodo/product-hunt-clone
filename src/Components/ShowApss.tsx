@@ -26,12 +26,14 @@ const ShowApss: React.FC<ShowApssProps> = ({ projectsdata }) => {
     <div className="flex flex-col items-start p-4 mt-5 w-full">
       <h1 className="text-2xl font-bold mb-4">O Próximo Grande App</h1>
 
-      {projects.map((project) => (
+      {projects.map((project, index) => (
         <motion.div 
           key={project.id}
           className="flex flex-col sm:flex-row w-full mt-6 items-center sm:items-start p-4 sm:p-6 border rounded-lg shadow-md cursor-pointer bg-gray-800 hover:bg-gray-700 transition duration-300"
           whileHover={{ scale: 1.05 }}
-          transition={{ type: 'spring', stiffness: 300 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: index * 0.1, duration: 0.5 }}
         >
           <div className="flex-shrink-0 text-blue-500 text-4xl">
             <FaProjectDiagram />
