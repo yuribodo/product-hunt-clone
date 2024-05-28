@@ -9,6 +9,7 @@ import projects from '../../projects.json';
 function Home() {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredProjects, setFilteredProjects] = useState(projects);
+  const [selectedHashtag, setSelectedHashtag] = useState<string | null>(null);
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     console.log("Search term:", event.target.value); // Adicionado para depuração
@@ -23,13 +24,24 @@ function Home() {
     setFilteredProjects(filtered);
   }, [searchTerm]);
 
+  useEffect(() => {
+    if (selectedHashtag) {
+      setFilteredProjects(projects.filter(project => project.hashtag === selectedHashtag));
+    } else {
+      setFilteredProjects(projects);
+    }
+  }, [selectedHashtag]);
+
   console.log("Filtered projects:", filteredProjects); // Adicionado para depuração
 
   return (
     <div className="bg-gray-900 text-white min-h-screen">
       <Navbar onSearchChange={handleSearchChange} />
       <div className="py-8">
-        <TrendingTopics />
+      <TrendingTopics 
+          hashtags={[...new Set(projects.map(project => project.hashtag))]} 
+          onSelectHashtag={setSelectedHashtag} 
+        />
       </div>
       <div className="flex flex-col md:flex-row px-8">
         <motion.div 

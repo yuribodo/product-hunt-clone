@@ -12,6 +12,7 @@ interface ShowApssProps {
 const ShowApss: React.FC<ShowApssProps> = ({ projectsdata }) => {
   // Initialize the state with the upvotes from the projectsdata
   const [projects, setProjects] = useState(projectsdata);
+  
 
   // Function to handle upvoting
   const addVote = (id: number, e: React.MouseEvent<HTMLParagraphElement>) => {
@@ -21,9 +22,13 @@ const ShowApss: React.FC<ShowApssProps> = ({ projectsdata }) => {
     ));
   };
 
+  
+
   useEffect(() => {
     setProjects(projectsdata);
   }, [projectsdata]);
+
+  
 
   return (
     <div className="flex flex-col items-start p-10 mt-5">
@@ -45,8 +50,7 @@ const ShowApss: React.FC<ShowApssProps> = ({ projectsdata }) => {
               <h1 className="text-lg font-semibold">{project.title}</h1>
               <p>{project.description}</p>
               <div className="flex space-x-2">
-                <p>Ia</p>
-                <p>API</p>
+                <p className="cursor-pointer text-blue-500 hover:underline">#{project.hashtag}</p>
               </div>
             </div>
             </Link>

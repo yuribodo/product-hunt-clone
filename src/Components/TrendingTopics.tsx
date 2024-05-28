@@ -1,6 +1,14 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 
-const TrendingTopics = () => {
+
+interface TrendingTopicsProps {
+  hashtags: string[];
+  onSelectHashtag: (hashtag: string) => void;
+}
+
+const TrendingTopics: React.FC<TrendingTopicsProps> = ({ hashtags, onSelectHashtag }) => {
+
   return (
     <motion.div 
       className='flex justify-center items-center mt-10'
@@ -21,24 +29,17 @@ const TrendingTopics = () => {
           transition={{ duration: 0.5, delay: 1 }}
         >
           <p className='text-white font-bold text-xl'>Trending Topics</p>
-          <motion.div 
-            className='bg-gray-700 h-8 flex items-center justify-center px-4 rounded-full border border-gray-500 text-white hover:bg-gray-600 transition-colors cursor-pointer'
-            whileHover={{ scale: 1.1 }}
-          >
-            IA
-          </motion.div>
-          <motion.div 
-            className='bg-gray-700 h-8 flex items-center justify-center px-4 rounded-full border border-gray-500 text-white hover:bg-gray-600 transition-colors cursor-pointer'
-            whileHover={{ scale: 1.1 }}
-          >
-            Marketing
-          </motion.div>
-          <motion.div 
-            className='bg-gray-700 h-8 flex items-center justify-center px-4 rounded-full border border-gray-500 text-white hover:bg-gray-600 transition-colors cursor-pointer'
-            whileHover={{ scale: 1.1 }}
-          >
-            Produtividade
-          </motion.div>
+          {hashtags.map((hashtag, index) => (
+            <motion.div 
+              key={index}
+              className='bg-gray-700 h-8 flex items-center justify-center px-4 rounded-full border border-gray-500 text-white hover:bg-gray-600 transition-colors cursor-pointer'
+              whileHover={{ scale: 1.1 }}
+              onClick={() => onSelectHashtag(hashtag)}
+            >
+              {hashtag}
+            </motion.div>
+          ))} 
+
         </motion.div>
       </motion.div>
     </motion.div>
