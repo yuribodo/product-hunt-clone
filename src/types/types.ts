@@ -12,8 +12,8 @@ export interface Project {
 export interface Post {
   id: string;
   title: string;
-  description: string;
-  upvotes: number;
+  description: string | null;
   hashtag: string;
+  upvotes: number;
   authorId: number;
 }

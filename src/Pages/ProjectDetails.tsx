@@ -1,19 +1,40 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from "../Components/Navbar";
 import { motion } from 'framer-motion';
 import { useParams } from 'react-router-dom';
-import { Project } from '../types/types';
+import axios from 'axios';
+import { Post } from '../types/types';
 
-interface ProjectDetailsProps {
-  projects: Project[]; // Assume que a lista de projetos é passada como uma propriedade
-}
+const PostDetails: React.FC = () => {
+  const { id } = useParams<{ id: string }>(); // Obtém o ID do post da URL
+  const [post, setPost] = useState<Post | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-const ProjectDetails: React.FC<ProjectDetailsProps> = ({ projects }) => {
-  const { id } = useParams(); // Obtém o ID do projeto da URL
-  const project = projects.find(project => project.id === Number(id)); // Encontra o projeto correspondente
+  useEffect(() => {
+    const fetchPost = async () => {
+      try {
+        const response = await axios.get(`http://192.168.100.211:8080/posts/${id}`);
+        setPost(response.data.data);
+        setLoading(false);
+      } catch (error) {
+        setError('Erro ao carregar o projeto');
+        setLoading(false);
+      }
+    };
 
-  // Se o projeto não for encontrado, exiba uma mensagem de erro
-  if (!project) {
+    fetchPost();
+  }, [id]);
+
+  if (loading) {
+    return <div>Carregando...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
+
+  if (!post) {
     return <div>Projeto não encontrado</div>;
   }
 
@@ -40,7 +61,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ projects }) => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
           >
-            {project.title}
+            {post.title}
           </motion.h1>
           <motion.p
             className="text-gray-300 mb-6"
@@ -48,15 +69,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ projects }) => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.5 }}
           >
-            {project.description}
-          </motion.p>
-          <motion.p
-            className="text-gray-300"
-            initial={{ y: -20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.5 }}
-          >
-            URL: {project.url}
+            {post.description}
           </motion.p>
           <motion.p
             className="text-gray-300"
@@ -64,23 +77,7 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ projects }) => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.5 }}
           >
-            Upvotes: {project.upvotes}
-          </motion.p>
-          <motion.p
-            className="text-gray-300"
-            initial={{ y: -20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.5 }}
-          >
-            Criado em: {project.createdAt}
-          </motion.p>
-          <motion.p
-            className="text-gray-300"
-            initial={{ y: -20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.7, duration: 0.5 }}
-          >
-            Atualizado em: {project.updatedAt}
+            Upvotes: {post.upvotes}
           </motion.p>
         </motion.div>
       </motion.div>
@@ -88,4 +85,4 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ projects }) => {
   );
 };
 
-export default ProjectDetails;
+export default PostDetails;

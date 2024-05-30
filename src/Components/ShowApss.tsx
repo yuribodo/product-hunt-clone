@@ -1,54 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { FaProjectDiagram } from 'react-icons/fa'; // Import the icon
-import { Project, Post } from '../types/types';
-import axios from 'axios'
+import { FaProjectDiagram } from 'react-icons/fa';
+import { Post } from '../types/types';
+
 
 interface ShowApssProps {
-  projectsdata: Project[];
+  posts: Post[];
 }
 
+const ShowApss: React.FC<ShowApssProps> = ({ posts }) => {
+  const [projects, setProjects] = useState<Post[]>(posts);
 
-
-
-
-const ShowApss: React.FC<ShowApssProps> = ({ projectsdata }) => {
-  const [projects, setProjects] = useState(projectsdata);
-  console.log(projects)
-  const [posts, setPosts] = useState<Post[]>([]);
-
-  {/*const addVote = (id: number, e: React.MouseEvent<HTMLParagraphElement>) => {
+  const addVote = (id: string, e: React.MouseEvent<HTMLParagraphElement>) => {
     e.stopPropagation();
     setProjects(projects.map(project =>
       project.id === id ? { ...project, upvotes: project.upvotes + 1 } : project
     ));
-  };*/}
-
-
-  async function getPosts() {
-    try {
-      const response = await axios.get<{ data: Post[] }>('http://192.168.100.211:8080/posts');
-      setPosts(response.data.data);
-      console.log(posts)
-    } catch (error) {
-      console.error(error);
-    }
-  }
+  };
 
   useEffect(() => {
-    setProjects(projectsdata);
-  }, [projectsdata]);
-
-  useEffect(() => {
-    getPosts()
-  }, [])
+    setProjects(posts);
+  }, [posts]);
 
   return (
     <div className="flex flex-col items-start p-4 mt-5 w-full">
       <h1 className="text-2xl font-bold mb-4">O Próximo Grande App</h1>
-
-      {posts.map((project, index) => (
+      {projects.map((project, index) => (
         <motion.div 
           key={project.id}
           className="flex flex-col sm:flex-row w-full mt-6 items-center sm:items-start p-4 sm:p-6 border rounded-lg shadow-md cursor-pointer bg-gray-800 hover:bg-gray-700 transition duration-300"
@@ -73,8 +51,7 @@ const ShowApss: React.FC<ShowApssProps> = ({ projectsdata }) => {
             <div className="flex flex-col items-center">
               <p className="text-gray-300">Votos</p>
               <div className="flex items-center border justify-center w-[40px] h-[40px] rounded-full border-white cursor-pointer hover:w-[50px] hover:h-[50px] transition-all duration-300 bg-blue-500 text-white">
-                {/*<p onClick={(e) => addVote(project.id, e)}>{project.upvotes}</p>*/}
-                <p>{project.upvotes}</p>
+                <p onClick={(e) => addVote(project.id, e)}>{project.upvotes}</p>
               </div>
             </div>
           </div>
