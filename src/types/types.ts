@@ -8,3 +8,12 @@ export interface Project {
     updatedAt: string;
     hashtag: string;
   }
+
+export interface Post {
+  id: string;
+  title: string;
+  description: string;
+  upvotes: number;
+  hashtag: string;
+  authorId: number;
+}
