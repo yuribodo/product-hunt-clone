@@ -2,12 +2,30 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '../Components/Navbar';
 import { SignedIn, SignedOut, SignInButton } from "@clerk/clerk-react";
+import axios from 'axios';
+
 
 const CreateProject: React.FC = () => {
   // Função para lidar com a submissão do formulário
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // Lógica para lidar com a submissão do formulário aqui
+    const formData = new FormData(event.currentTarget);
+    const postData = {
+      title: formData.get('title') as string,
+      description: formData.get('description') as string,
+      hashtag: formData.get('hashtag') as string,
+      upvotes: 0, // Assuming a new post starts with 0 upvotes
+      authorId: 1, // Setting authorId to 1 by default
+    };
+
+    try {
+      const response = await axios.post('http://192.168.100.211:8080/posts', postData);
+      console.log('Post created successfully:', response.data);
+      // Handle success (e.g., redirect or show success message)
+    } catch (error) {
+      console.error('Error creating post:', error);
+      // Handle error (e.g., show error message)
+    }
   };
 
   return (
@@ -34,7 +52,7 @@ const CreateProject: React.FC = () => {
           </motion.div>
         </SignedOut>
         <SignedIn>
-          <div className="pt-20 pb-8"> {/* Adicionamos pt-20 para espaçamento superior */}
+          <div className="pt-20 pb-8">
             <motion.div
               className="flex justify-center items-center px-4 md:px-8 lg:px-16"
               initial={{ opacity: 0, y: -50 }}
@@ -60,15 +78,6 @@ const CreateProject: React.FC = () => {
                     rows={5} 
                     className="w-full p-3 rounded border border-gray-600 bg-gray-900 text-white focus:outline-none focus:ring-2 focus:ring-blue-500" 
                   ></textarea>
-                </div>
-                <div className="mb-6">
-                  <label htmlFor="url" className="block text-lg font-semibold mb-2">URL</label>
-                  <input 
-                    type="text" 
-                    id="url" 
-                    name="url" 
-                    className="w-full p-3 rounded border border-gray-600 bg-gray-900 text-white focus:outline-none focus:ring-2 focus:ring-blue-500" 
-                  />
                 </div>
                 <div className="mb-6">
                   <label htmlFor="hashtag" className="block text-lg font-semibold mb-2">Hashtag</label>
