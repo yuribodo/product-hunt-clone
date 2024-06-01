@@ -1,11 +1,40 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '../Components/Navbar';
 import { SignedIn, SignedOut, SignInButton } from "@clerk/clerk-react";
 import axios from 'axios';
 
+// Modal component
+const SuccessModal: React.FC<{ onClose: () => void }> = ({ onClose }) => (
+  <AnimatePresence>
+    <motion.div
+      className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <motion.div
+        className="bg-white text-black rounded-lg p-8 shadow-lg"
+        initial={{ scale: 0.5 }}
+        animate={{ scale: 1 }}
+        exit={{ scale: 0.5 }}
+      >
+        <h2 className="text-2xl font-bold mb-4">Success!</h2>
+        <p className="mb-4">The post has been created successfully.</p>
+        <button 
+          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors"
+          onClick={onClose}
+        >
+          Close
+        </button>
+      </motion.div>
+    </motion.div>
+  </AnimatePresence>
+);
 
 const CreateProject: React.FC = () => {
+  const [showModal, setShowModal] = useState(false);
+
   // Função para lidar com a submissão do formulário
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -21,7 +50,8 @@ const CreateProject: React.FC = () => {
     try {
       const response = await axios.post('http://192.168.100.211:8080/posts', postData);
       console.log('Post created successfully:', response.data);
-      // Handle success (e.g., redirect or show success message)
+      setShowModal(true);
+      event.currentTarget.reset(); // Reset form
     } catch (error) {
       console.error('Error creating post:', error);
       // Handle error (e.g., show error message)
@@ -98,6 +128,7 @@ const CreateProject: React.FC = () => {
             </motion.div>
           </div>
         </SignedIn>
+        {showModal && <SuccessModal onClose={() => setShowModal(false)} />}
       </motion.div>
     </div>
   );
