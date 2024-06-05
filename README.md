@@ -25,15 +25,16 @@ This application was conceived as a blueprint for rapid full-stack development, 
 - **TypeScript**: A superset of JavaScript, offering static type-checking and the latest ECMAScript features.
 - **TailwindCSS**: A utility-first CSS framework packed with classes like `flex`, `pt-4`, `text-center` and more to style your websites without leaving your HTML.
 - **React-Router-Dom**: A routing library for React, enabling navigation among views.
-- **Jest**: A delightful JavaScript Testing Framework with a focus on simplicity.
+- **Framer-motion**:
+- **Clerk**:
 
 ### Backend
 
 - **Node.js**: A JavaScript runtime built on Chrome's V8 JavaScript engine.
 - **Express**: A minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
 - **TypeScript**: Brings static typing to JavaScript, ensuring a more predictable runtime behavior.
-- **Jest**: Used for writing unit and integration tests for the backend.
-- **PostgreSQL**: A powerful, open-source object-relational database system.
+- **Prisma**: 
+- **MySQL**: 
 - **Nodemon**: A utility that monitors for any changes in your source and automatically restarts your server.
 
 ## Installation
@@ -49,7 +50,7 @@ Before you start, ensure you have `node` and `npm` installed on your machine.
 2. **Navigate to the repository**:
 
    ```bash
-   cd full-stack-template
+   cd product-hunt-clone
    ```
 
 3. **Install the dependencies**:
@@ -57,13 +58,13 @@ Before you start, ensure you have `node` and `npm` installed on your machine.
    - For Frontend:
    
      ```bash
-     cd frontend && npm install
+     npm install
      ```
 
    - For Backend:
 
      ```bash
-     cd backend && npm install
+     npm install
      ```
 
 ## Running the Application
@@ -71,7 +72,7 @@ Before you start, ensure you have `node` and `npm` installed on your machine.
 - **To run the frontend**:
 
   ```bash
-  npm run start-frontend
+  npm run dev
   ```
 
   This starts the React application on `http://localhost:5173` (or another available port).
@@ -79,20 +80,12 @@ Before you start, ensure you have `node` and `npm` installed on your machine.
 - **To run the backend**:
 
   ```bash
-  npm run start-backend
+  npm run dev
   ```
 
-  This initializes the Express server, typically on `http://localhost:3000`.
+  This initializes the Express server, typically on `http://localhost:8080`.
 
-- **To run both simultaneously**:
 
-  ```bash
-  npm run start
-  ```
-
-  This will invoke `concurrently` to start both the front and back ends.
-
-Ensure that the frontend and backend are configured to run on separate ports to avoid conflicts.
 
 ## Conclusion
 
