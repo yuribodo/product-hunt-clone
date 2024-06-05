@@ -19,14 +19,14 @@ const App: React.FC = () => {
   return (
     <Router>
         <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
-        <div className="container mx-auto ">
+        <div className=" mx-auto ">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="*" element={<NotFound />} />
             <Route path='/produtos' element={<Produtos/>}/>
             <Route path='/createproject' element={<CreateProject/>}/>
             <Route path='/sobre' element={<Sobre/>}/>
-            <Route path="/project/:id" element={<ProjectDetails projects={projects} />} />
+            <Route path="/project/:id" element={<ProjectDetails />} />
           </Routes>
         </div>
         </ClerkProvider>
