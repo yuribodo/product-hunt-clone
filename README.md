@@ -44,7 +44,7 @@ Before you start, ensure you have `node` and `npm` installed on your machine.
 1. **Clone the repository**:
    
    ```bash
-   git clone https://github.com/gabrielkrapp/full-stack-template.git
+   git clone https://github.com/yuribodo/product-hunt-clone.git
    ```
 
 2. **Navigate to the repository**:
